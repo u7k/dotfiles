@@ -1,0 +1,2 @@
+# Load the shared login-shell environment and Homebrew setup.
+[[ -r "$HOME/.profile" ]] && source "$HOME/.profile"

@@ -1,0 +1,57 @@
+export DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.config/dotfiles}"
+
+# History stays on the machine and is never part of this repository.
+HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=10000
+setopt append_history share_history hist_ignore_dups hist_reduce_blanks
+
+# Load Oh My Zsh when installed; retain native completion as a fallback.
+if [[ -r "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]]; then
+  export ZSH="$HOME/.oh-my-zsh"
+  ZSH_THEME=""
+  plugins=(
+    sudo
+    web-search
+    copypath
+    copyfile
+    copybuffer
+    dirhistory
+    macos
+    colored-man-pages
+    command-not-found
+  )
+  source "$ZSH/oh-my-zsh.sh"
+else
+  autoload -Uz compinit && compinit
+fi
+
+[[ -r "$DOTFILES_DIR/config/shell/shared/path.sh" ]] && source "$DOTFILES_DIR/config/shell/shared/path.sh"
+[[ -r "$DOTFILES_DIR/config/shell/shared/aliases" ]] && source "$DOTFILES_DIR/config/shell/shared/aliases"
+
+for module in functions tools; do
+  [[ -r "$DOTFILES_DIR/config/shell/shared/$module.sh" ]] && source "$DOTFILES_DIR/config/shell/shared/$module.sh"
+done
+
+if [[ -n "${HOMEBREW_PREFIX:-}" ]]; then
+  [[ -r "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh" ]] && \
+    source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
+  [[ -r "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh" ]] && \
+    source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
+
+  [[ -r "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && \
+    source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+  [[ -r "$DOTFILES_DIR/config/shell/zsh/p10k.zsh" ]] && source "$DOTFILES_DIR/config/shell/zsh/p10k.zsh"
+  [[ -r "$HOME/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme" ]] && \
+    source "$HOME/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme"
+
+  # Syntax highlighting must be the final interactive plugin.
+  if [[ -r "$HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ]]; then
+    source "$HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+  elif [[ -r "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+    source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+  fi
+fi
+
+[[ -r "$DOTFILES_DIR/.local/shell.sh" ]] && source "$DOTFILES_DIR/.local/shell.sh"

@@ -1,0 +1,49 @@
+# Taps used by retained packages or shell integrations.
+tap "homebrew/command-not-found" # Suggests Homebrew packages for unknown shell commands.
+tap "homebrew/services" # Adds service management commands to Homebrew.
+tap "nikitabobko/tap" # Provides the AeroSpace window manager cask.
+tap "tw93/tap" # Provides the Mole macOS cleanup utility.
+
+# Shell and daily command-line tools.
+brew "btop" # Interactive terminal resource monitor.
+brew "eza" # Modern replacement for ls with Git-aware output.
+brew "fastfetch" # Displays compact system information in the terminal.
+brew "fd" # Fast and user-friendly alternative to find.
+brew "fzf" # Interactive fuzzy finder for files and command history.
+brew "lazygit" # Terminal interface for common Git workflows.
+brew "mole" # Finds large files and cleans common macOS caches.
+brew "ripgrep" # Fast recursive text search tool.
+brew "thefuck" # Suggests corrections for mistyped shell commands.
+brew "tmux" # Persistent terminal session and pane manager.
+brew "yazi" # Fast terminal file manager with previews.
+brew "zsh-autosuggestions" # Adds command suggestions based on shell history.
+brew "zsh-fast-syntax-highlighting" # Provides detailed Zsh syntax highlighting.
+brew "zsh-syntax-highlighting" # Highlights valid and invalid Zsh commands.
+
+# Development tools and runtimes.
+brew "asc" # Command-line client for App Store Connect.
+brew "fmt" # Modern C++ text formatting library.
+brew "gh" # Official GitHub command-line client.
+brew "neovim" # Extensible terminal-based text editor.
+brew "node" # JavaScript runtime and npm package manager.
+brew "protobuf" # Compiler and libraries for Protocol Buffers.
+brew "pyenv" # Installs and selects multiple Python versions.
+brew "vapor" # Command-line tools for server-side Swift projects.
+
+# Media and network utilities.
+brew "ffmpeg" # Converts, records, and streams audio and video.
+brew "imagemagick" # Command-line image conversion and manipulation suite.
+brew "nmap" # Network discovery and port scanning utility.
+brew "telnet" # Command-line client for the Telnet protocol.
+brew "yt-dlp" # Downloads video and audio from supported websites.
+
+# Terminals, window management, and system helpers.
+cask "aerospace" # Tiling window manager inspired by i3.
+cask "macfuse" # Adds support for user-space file systems on macOS.
+cask "warp" # Modern terminal with collaborative and AI features.
+
+# Developer applications.
+cask "dbeaver-community" # Universal database management and SQL client.
+
+# Global developer assistants.
+npm "@openai/codex" # OpenAI coding agent command-line interface.

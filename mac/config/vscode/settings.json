@@ -1,0 +1,16 @@
+{
+  "remote.defaultExtensionsIfInstalledLocally": [
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "GitHub.vscode-pull-request-github"
+  ],
+  "editor.accessibilitySupport": "off",
+  "editor.minimap.enabled": false,
+  "editor.unicodeHighlight.allowedLocales": {
+    "tr": true
+  },
+  "chatgpt.openOnStartup": true,
+  "workbench.activityBar.location": "top",
+  "workbench.colorTheme": "Tokyo Night",
+  "workbench.iconTheme": "vscode-icons"
+}

@@ -1,0 +1,35 @@
+# macOS and editor noise
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Backups created by the linker or local tools
+*.backup-*
+*.bak
+*.log
+.nvimlog
+
+# Machine-local configuration and secrets
+/.local/
+/AGENTS.md
+/mac/config/shell/private.sh
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.mobileprovision
+
+# Account-backed app exports. Keep only the documentation in this repository.
+/mac/config/raycast/
+/mac/config/warp/launch_configurations/
+/mac/config/warp/ssh/
+/mac/config/warp/workflows/
+
+# Generated state
+/mac/config/nvim/.neoconf.json
+/mac/config/nvim/lazy-lock.json
+**/__pycache__/
+**/.cache/

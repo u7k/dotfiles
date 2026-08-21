@@ -1,0 +1,28 @@
+export DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.config/dotfiles}"
+
+HISTFILE="$HOME/.bash_history"
+HISTSIZE=50000
+HISTFILESIZE=10000
+
+if [ -r "$DOTFILES_DIR/config/shell/shared/aliases" ]; then
+  # shellcheck source=/dev/null
+  . "$DOTFILES_DIR/config/shell/shared/aliases"
+fi
+
+for module in functions tools; do
+  # shellcheck source=/dev/null
+  [ -r "$DOTFILES_DIR/config/shell/shared/$module.sh" ] && . "$DOTFILES_DIR/config/shell/shared/$module.sh"
+done
+
+if [ -n "${HOMEBREW_PREFIX:-}" ] && [ -r "$HOMEBREW_PREFIX/opt/fzf/shell/completion.bash" ]; then
+  # shellcheck source=/dev/null
+  . "$HOMEBREW_PREFIX/opt/fzf/shell/completion.bash"
+fi
+
+if [ -n "${HOMEBREW_PREFIX:-}" ] && [ -r "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash" ]; then
+  # shellcheck source=/dev/null
+  . "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash"
+fi
+
+# shellcheck source=/dev/null
+[ -r "$DOTFILES_DIR/.local/shell.sh" ] && . "$DOTFILES_DIR/.local/shell.sh"
