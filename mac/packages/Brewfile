@@ -39,11 +39,21 @@ brew "yt-dlp" # Downloads video and audio from supported websites.
 
 # Terminals, window management, and system helpers.
 cask "aerospace" # Tiling window manager inspired by i3.
+cask "appcleaner" # Removes applications together with their related files.
+cask "bitwarden" # Cross-platform password manager.
+cask "istat-menus" # Displays detailed system activity in the menu bar.
+cask "little-snitch" # Monitors and controls outgoing network connections.
 cask "macfuse" # Adds support for user-space file systems on macOS.
+cask "monitorcontrol" # Controls external display brightness and volume.
+cask "openlogi" # Local-first configuration utility for Logitech HID++ devices.
+cask "raycast" # Keyboard-driven launcher and productivity toolkit.
 cask "warp" # Modern terminal with collaborative and AI features.
 
 # Developer applications.
 cask "dbeaver-community" # Universal database management and SQL client.
+cask "devcleaner" # Removes obsolete Xcode build artifacts and simulator data.
+cask "fork" # Graphical Git client.
+cask "postman" # Platform for developing and testing APIs.
 
 # Global developer assistants.
 npm "@openai/codex" # OpenAI coding agent command-line interface.
