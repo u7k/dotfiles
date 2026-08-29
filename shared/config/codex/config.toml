@@ -1,0 +1,5 @@
+# Portable Codex defaults. Machine-local trust, plugin, and MCP settings stay in
+# ~/.codex/config.toml and are preserved by install-codex-config.sh.
+approval_policy = "on-request"
+approvals_reviewer = "auto_review"
+default_permissions = ":workspace"

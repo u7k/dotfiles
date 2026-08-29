@@ -3,6 +3,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
+REPO_DIR="$(dirname "$ROOT_DIR")"
 
 if [ "$(uname -s)" != "Linux" ] || ! command -v omarchy >/dev/null 2>&1; then
   printf '%s\n' 'This setup targets an installed Omarchy system.' >&2
@@ -12,6 +13,7 @@ fi
 "$ROOT_DIR/scripts/install-packages.sh"
 "$ROOT_DIR/scripts/install-shell-support.sh"
 "$ROOT_DIR/scripts/link.sh"
+"$REPO_DIR/shared/scripts/install-codex-config.sh"
 "$ROOT_DIR/scripts/set-default-shell.sh"
 "$ROOT_DIR/scripts/install-yazi-packages.sh"
 "$ROOT_DIR/scripts/verify.sh"

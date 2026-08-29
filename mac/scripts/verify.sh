@@ -11,7 +11,7 @@ while IFS= read -r file; do
   if ! bash -n "$file"; then
     FAILED=1
   fi
-done < <(find "$ROOT_DIR/scripts" "$ROOT_DIR/macos" -type f -name '*.sh' -print | sort)
+done < <(find "$ROOT_DIR/scripts" "$ROOT_DIR/macos" "$REPO_DIR/shared/scripts" -type f -name '*.sh' -print | sort)
 
 for file in \
   "$ROOT_DIR/config/shell/bash/bash_profile" \

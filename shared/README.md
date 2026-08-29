@@ -43,3 +43,9 @@ Omarchy layer because it is a Wayland terminal. Omarchy's Ghostty, btop,
 Neovim, and tmux integrations preserve dynamic themes and Omarchy-only commands.
 Both platforms use Oh My Zsh for plugins and Starship for a Warp-like Tokyo
 Night prompt, so Powerlevel10k is intentionally not installed.
+
+The shared Codex defaults select **Approve for me** with the workspace sandbox.
+`shared/scripts/install-codex-config.sh` merges only those portable permission
+keys into `~/.codex/config.toml`, preserving machine-local project trust, plugin,
+and MCP settings. Both platform bootstraps run the merge automatically; use
+`make -C mac codex` or `make -C omarchy codex` to apply it separately.

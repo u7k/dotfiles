@@ -3,6 +3,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
+REPO_DIR="$(dirname "$ROOT_DIR")"
 
 if [ "$(uname -s)" != "Darwin" ]; then
   printf '%s\n' 'This setup targets macOS.' >&2
@@ -13,6 +14,7 @@ fi
 "$ROOT_DIR/scripts/install-packages.sh"
 "$ROOT_DIR/scripts/install-shell-support.sh"
 "$ROOT_DIR/scripts/link.sh"
+"$REPO_DIR/shared/scripts/install-codex-config.sh"
 "$ROOT_DIR/scripts/install-terminal-profile.sh"
 "$ROOT_DIR/scripts/install-yazi-packages.sh"
 "$ROOT_DIR/scripts/install-vscode-extensions.sh"

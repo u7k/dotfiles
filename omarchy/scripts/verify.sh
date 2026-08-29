@@ -11,7 +11,7 @@ while IFS= read -r file; do
   if ! bash -n "$file"; then
     FAILED=1
   fi
-done < <(find "$ROOT_DIR/scripts" -type f -name '*.sh' -print | sort)
+done < <(find "$ROOT_DIR/scripts" "$REPO_DIR/shared/scripts" -type f -name '*.sh' -print | sort)
 
 for file in \
   "$REPO_DIR/shared/shell/aliases" \
