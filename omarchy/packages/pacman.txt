@@ -1,0 +1,24 @@
+# Shared terminal workflow. These names are validated against Omarchy's Arch
+# repositories; `fuck` provides the `thefuck` command.
+atuin
+bat
+btop
+dua-cli
+eza
+fastfetch
+fd
+fzf
+ghostty
+lazydocker
+lazygit
+neovim
+ripgrep
+starship
+tldr
+tmux
+yazi
+zoxide
+zsh
+zsh-autocomplete
+zsh-autosuggestions
+zsh-syntax-highlighting

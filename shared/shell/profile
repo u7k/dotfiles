@@ -7,4 +7,4 @@ elif [ -x /usr/local/bin/brew ]; then
 fi
 
 # shellcheck source=/dev/null
-[ -r "$HOME/.config/dotfiles/config/shell/shared/path.sh" ] && . "$HOME/.config/dotfiles/config/shell/shared/path.sh"
+[ -r "$HOME/.config/dotfiles/shared/shell/path.sh" ] && . "$HOME/.config/dotfiles/shared/shell/path.sh"

@@ -12,17 +12,6 @@ else
   printf '%s\n' 'Oh My Zsh is already installed.'
 fi
 
-POWERLEVEL10K_DIR="$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
-if [ ! -d "$POWERLEVEL10K_DIR/.git" ]; then
-  if [ -e "$POWERLEVEL10K_DIR" ]; then
-    printf '%s\n' 'Powerlevel10k exists but is not a Git checkout; leaving it unchanged.'
-  else
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$POWERLEVEL10K_DIR"
-  fi
-else
-  printf '%s\n' 'Powerlevel10k is already installed.'
-fi
-
 if command -v rustup >/dev/null 2>&1; then
   RUSTUP_BIN="$(command -v rustup)"
 elif command -v brew >/dev/null 2>&1 && [ -x "$(brew --prefix rustup)/bin/rustup" ]; then

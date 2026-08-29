@@ -4,14 +4,14 @@ HISTFILE="$HOME/.bash_history"
 HISTSIZE=50000
 HISTFILESIZE=10000
 
-if [ -r "$DOTFILES_DIR/config/shell/shared/aliases" ]; then
+if [ -r "$DOTFILES_DIR/shared/shell/aliases" ]; then
   # shellcheck source=/dev/null
-  . "$DOTFILES_DIR/config/shell/shared/aliases"
+  . "$DOTFILES_DIR/shared/shell/aliases"
 fi
 
 for module in functions tools; do
   # shellcheck source=/dev/null
-  [ -r "$DOTFILES_DIR/config/shell/shared/$module.sh" ] && . "$DOTFILES_DIR/config/shell/shared/$module.sh"
+  [ -r "$DOTFILES_DIR/shared/shell/$module.sh" ] && . "$DOTFILES_DIR/shared/shell/$module.sh"
 done
 
 if [ -n "${HOMEBREW_PREFIX:-}" ] && [ -r "$HOMEBREW_PREFIX/opt/fzf/shell/completion.bash" ]; then

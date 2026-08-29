@@ -2,18 +2,14 @@
 
 set -euo pipefail
 
-ROOT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
-REPO_DIR="$(dirname "$ROOT_DIR")"
-YAZI_CONFIG_DIR="$REPO_DIR/shared/config/yazi"
-
 if ! command -v ya >/dev/null 2>&1; then
   printf '%s\n' 'Yazi is not available yet; skipping flavor installation.'
   exit 0
 fi
 
-if [ -d "$YAZI_CONFIG_DIR/flavors/tokyo-night.yazi" ]; then
+if [ -d "$HOME/.config/yazi/flavors/tokyo-night.yazi" ]; then
   printf '%s\n' 'Using the version-controlled Tokyo Night Yazi flavor.'
   exit 0
 fi
 
-YAZI_CONFIG_HOME="$YAZI_CONFIG_DIR" ya pkg install
+YAZI_CONFIG_HOME="$HOME/.config/yazi" ya pkg install

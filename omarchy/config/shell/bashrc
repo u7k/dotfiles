@@ -1,0 +1,30 @@
+# Omarchy environment is required for non-interactive shells too.
+[[ -r /usr/share/omarchy/default/bash/env-bootstrap ]] && source /usr/share/omarchy/default/bash/env-bootstrap
+
+[[ $- != *i* ]] && return
+
+# Keep Omarchy's defaults as the base; shared aliases loaded below intentionally
+# win when both setups define the same shortcut.
+source "$OMARCHY_PATH/default/bash/rc"
+
+export DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.config/dotfiles}"
+
+# ble.sh is optional and installed outside the package manager.
+if [[ -r "$HOME/.local/share/blesh/ble.sh" ]]; then
+  source -- "$HOME/.local/share/blesh/ble.sh" --attach=none
+fi
+
+[[ -r "$DOTFILES_DIR/shared/shell/path.sh" ]] && source "$DOTFILES_DIR/shared/shell/path.sh"
+[[ -r "$DOTFILES_DIR/shared/shell/aliases" ]] && source "$DOTFILES_DIR/shared/shell/aliases"
+
+for module in functions tools; do
+  [[ -r "$DOTFILES_DIR/shared/shell/$module.sh" ]] && source "$DOTFILES_DIR/shared/shell/$module.sh"
+done
+
+if [[ ${BLE_VERSION-} ]]; then
+  ble-import integration/fzf-completion
+  ble-import integration/fzf-key-bindings
+  ble-attach
+fi
+
+[[ -r "$DOTFILES_DIR/.local/shell.sh" ]] && source "$DOTFILES_DIR/.local/shell.sh"

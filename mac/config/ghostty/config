@@ -1,0 +1,6 @@
+config-file = ?"~/.config/dotfiles/shared/config/ghostty/config"
+
+# Match the former Warp appearance while using Ghostty as the terminal.
+theme = TokyoNight
+font-size = 13
+command = /bin/zsh

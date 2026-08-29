@@ -3,5 +3,10 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 
+# Omarchy's environment bootstrap is POSIX-compatible and keeps its command
+# paths available to Zsh login and non-interactive shells.
+[[ -r /usr/share/omarchy/default/bash/env-bootstrap ]] && \
+  source /usr/share/omarchy/default/bash/env-bootstrap
+
 # rustup's installer maintains this public, path-only helper.
 [[ -r "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"

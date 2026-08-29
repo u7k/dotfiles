@@ -1,0 +1,2 @@
+# Enter executes the selected history entry; Tab keeps it editable.
+enter_accept = true

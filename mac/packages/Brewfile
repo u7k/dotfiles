@@ -1,23 +1,34 @@
 # Taps used by retained packages or shell integrations.
 tap "homebrew/command-not-found" # Suggests Homebrew packages for unknown shell commands.
 tap "homebrew/services" # Adds service management commands to Homebrew.
+tap "jnsahaj/lumen" # Provides the Lumen Git diff and code-review TUI.
 tap "nikitabobko/tap" # Provides the AeroSpace window manager cask.
 tap "tw93/tap" # Provides the Mole macOS cleanup utility.
 
 # Shell and daily command-line tools.
+brew "atuin" # Searchable, synchronized shell history.
+brew "bat" # Syntax-highlighted replacement for cat and fzf previews.
 brew "btop" # Interactive terminal resource monitor.
+brew "dua-cli" # Interactive disk-usage analyzer.
 brew "eza" # Modern replacement for ls with Git-aware output.
 brew "fastfetch" # Displays compact system information in the terminal.
 brew "fd" # Fast and user-friendly alternative to find.
 brew "fzf" # Interactive fuzzy finder for files and command history.
+brew "gum" # Interactive confirmations used by shared worktree helpers.
+brew "lazydocker" # Terminal interface for Docker resources.
 brew "lazygit" # Terminal interface for common Git workflows.
+brew "jnsahaj/lumen/lumen" # Side-by-side Git diff and code-review TUI.
 brew "mole" # Finds large files and cleans common macOS caches.
 brew "ripgrep" # Fast recursive text search tool.
+brew "starship" # Cross-platform prompt with shared Git context styling.
 brew "thefuck" # Suggests corrections for mistyped shell commands.
 brew "tmux" # Persistent terminal session and pane manager.
+brew "tlrc" # Fast tldr client; installs the tldr command.
 brew "yazi" # Fast terminal file manager with previews.
+brew "zoxide" # Frecency-based directory navigation.
+brew "zsh" # Current Zsh release used by the shared shell setup.
+brew "zsh-autocomplete" # Real-time menu completion while typing.
 brew "zsh-autosuggestions" # Adds command suggestions based on shell history.
-brew "zsh-fast-syntax-highlighting" # Provides detailed Zsh syntax highlighting.
 brew "zsh-syntax-highlighting" # Highlights valid and invalid Zsh commands.
 
 # Development tools and runtimes.
@@ -41,13 +52,13 @@ brew "yt-dlp" # Downloads video and audio from supported websites.
 cask "aerospace" # Tiling window manager inspired by i3.
 cask "appcleaner" # Removes applications together with their related files.
 cask "bitwarden" # Cross-platform password manager.
+cask "ghostty" # GPU-accelerated terminal used by the shared terminal config.
 cask "istat-menus" # Displays detailed system activity in the menu bar.
 cask "little-snitch" # Monitors and controls outgoing network connections.
 cask "macfuse" # Adds support for user-space file systems on macOS.
 cask "monitorcontrol" # Controls external display brightness and volume.
 cask "openlogi" # Local-first configuration utility for Logitech HID++ devices.
 cask "raycast" # Keyboard-driven launcher and productivity toolkit.
-cask "warp" # Modern terminal with collaborative and AI features.
 
 # Developer applications.
 cask "dbeaver-community" # Universal database management and SQL client.

@@ -1,0 +1,42 @@
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias home='cd ~'
+alias x='exit'
+
+# Files and fuzzy search
+if command -v eza >/dev/null 2>&1; then
+  alias ls='eza --group-directories-first --icons=auto'
+  alias ll='eza -lah --group-directories-first --icons=auto --git'
+  alias lsa='ls -a'
+  alias lt='eza --tree --level=2 --long --icons=auto --git'
+  alias lta='lt -a'
+else
+  alias ll='ls -lah'
+  alias lsa='ls -a'
+  alias lt='find . -maxdepth 2 -print'
+fi
+
+# TUI tools
+command -v btop >/dev/null 2>&1 && alias top='btop'
+command -v docker >/dev/null 2>&1 && alias d='docker'
+command -v lazygit >/dev/null 2>&1 && alias lg='lazygit'
+command -v lazydocker >/dev/null 2>&1 && alias ld='lazydocker'
+command -v mise >/dev/null 2>&1 && alias mup='MISE_MINIMUM_RELEASE_AGE=0 mise up'
+alias cpd='copypath'
+
+# Git
+alias g='git'
+alias hawktuah='git add -A'
+alias add='git add'
+alias commit='git commit'
+alias commitm='git commit -m'
+alias gcm='git commit -m'
+alias gcam='git commit -a -m'
+alias gcad='git commit -a --amend'
+alias push='git push'
+alias stat='git status'
+alias gdiff='git diff HEAD'
+alias vdiff='git difftool HEAD'
+alias gitlog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"

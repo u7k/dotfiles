@@ -1,0 +1,13 @@
+# Keep Omarchy's active theme dynamic, then load the portable defaults.
+config-file = ?"~/.local/state/omarchy/current/theme/ghostty.conf"
+config-file = ?"~/.config/dotfiles/shared/config/ghostty/config"
+
+window-theme = ghostty
+gtk-toolbar-style = flat
+
+# Avoid the known GTK/Hyprland async backend slowdown.
+async-backend = epoll
+
+# Use Zsh immediately even before the desktop session refreshes its inherited
+# SHELL environment after chsh.
+command = /usr/bin/zsh

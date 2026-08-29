@@ -3,6 +3,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
+REPO_DIR="$(dirname "$ROOT_DIR")"
 FAILED=0
 
 printf '%s\n' 'Checking shell syntax...'
@@ -15,25 +16,34 @@ done < <(find "$ROOT_DIR/scripts" "$ROOT_DIR/macos" -type f -name '*.sh' -print 
 for file in \
   "$ROOT_DIR/config/shell/bash/bash_profile" \
   "$ROOT_DIR/config/shell/bash/bashrc" \
-  "$ROOT_DIR/config/shell/shared/profile" \
-  "$ROOT_DIR/config/shell/shared/functions.sh" \
-  "$ROOT_DIR/config/shell/shared/path.sh" \
-  "$ROOT_DIR/config/shell/shared/tools.sh"; do
+  "$REPO_DIR/shared/shell/profile" \
+  "$REPO_DIR/shared/shell/functions.sh" \
+  "$REPO_DIR/shared/shell/path.sh" \
+  "$REPO_DIR/shared/shell/tools.sh"; do
   if ! bash -n "$file"; then
     FAILED=1
   fi
 done
 
 for file in \
-  "$ROOT_DIR/config/shell/shared/aliases" \
-  "$ROOT_DIR/config/shell/zsh/p10k.zsh" \
-  "$ROOT_DIR/config/shell/zsh/zprofile" \
-  "$ROOT_DIR/config/shell/zsh/zshenv" \
+  "$REPO_DIR/shared/shell/aliases" \
+  "$REPO_DIR/shared/shell/zprofile" \
+  "$REPO_DIR/shared/shell/zshenv" \
+  "$REPO_DIR/shared/shell/zshrc" \
+  "$REPO_DIR/shared/shell/omarchy-portable.zsh" \
   "$ROOT_DIR/config/shell/zsh/zshrc"; do
   if ! zsh -n "$file"; then
     FAILED=1
   fi
 done
+
+if command -v starship >/dev/null 2>&1; then
+  if ! STARSHIP_CACHE="${TMPDIR:-/tmp}/starship-cache" \
+    STARSHIP_CONFIG="$REPO_DIR/shared/config/starship.toml" starship print-config >/dev/null; then
+    printf '%s\n' 'Starship configuration is invalid.' >&2
+    FAILED=1
+  fi
+fi
 
 printf '%s\n' 'Checking package-list syntax...'
 if command -v brew >/dev/null 2>&1; then
@@ -57,7 +67,7 @@ if command -v jq >/dev/null 2>&1; then
     if ! jq empty "$json_file"; then
       FAILED=1
     fi
-  done < <(find "$ROOT_DIR/config" -type f -name '*.json' -print | sort)
+  done < <(find "$ROOT_DIR/config" "$REPO_DIR/shared/config" -type f -name '*.json' -print | sort)
 fi
 
 printf '%s\n' 'Scanning for likely credentials and machine-specific home paths...'

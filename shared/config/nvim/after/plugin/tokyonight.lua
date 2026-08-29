@@ -1,4 +1,8 @@
 -- Small shared palette used by Ghostty and btop as well.
+if vim.fn.filereadable(vim.fn.expand("~/.local/state/omarchy/current/theme/neovim.lua")) == 1 then
+  return
+end
+
 vim.o.background = "dark"
 vim.api.nvim_set_hl(0, "Normal", { fg = "#a9b1d6", bg = "#1a1b26" })
 vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#a9b1d6", bg = "#13141c" })

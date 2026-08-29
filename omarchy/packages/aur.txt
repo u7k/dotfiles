@@ -1,0 +1,3 @@
+# AUR-only package names.
+fuck
+lumen-bin
