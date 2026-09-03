@@ -4,3 +4,7 @@ config-file = ?"~/.config/dotfiles/shared/config/ghostty/config"
 theme = TokyoNight
 font-size = 13
 command = /bin/zsh
+
+# BEGIN THEME PICKER: GHOSTTY
+theme = theme-picker-osaka-jade
+# END THEME PICKER: GHOSTTY

@@ -35,6 +35,7 @@ link_item() {
 link_item "$REPO_DIR" "$HOME/.config/dotfiles"
 
 link_item "$REPO_DIR/shared/shell/profile" "$HOME/.profile"
+link_item "$REPO_DIR/shared/shell/hushlogin" "$HOME/.hushlogin"
 link_item "$REPO_DIR/shared/shell/zprofile" "$HOME/.zprofile"
 link_item "$REPO_DIR/shared/shell/zshenv" "$HOME/.zshenv"
 link_item "$ROOT_DIR/config/shell/zsh/zshrc" "$HOME/.zshrc"

@@ -1,5 +1,10 @@
 export DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.config/dotfiles}"
 
+# GUI terminals may start an interactive, non-login Zsh. Load the shared
+# profile here as well so Homebrew-backed prompt and completion tools are on
+# PATH in Ghostty, Codex, and login shells alike.
+[[ -r "$HOME/.profile" ]] && source "$HOME/.profile"
+
 # History stays local to each machine.
 HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"
 HISTSIZE=50000
@@ -23,6 +28,12 @@ brew_prefix="${HOMEBREW_PREFIX:-}"
 if [[ -z "$brew_prefix" ]] && command -v brew >/dev/null 2>&1; then
   brew_prefix="$(brew --prefix)"
 fi
+
+# zsh-autocomplete persists recent directories here, but its writer expects
+# the parent directory to exist before the first directory change.
+zsh_recent_dirs_parent="${XDG_DATA_HOME:-$HOME/.local/share}/zsh"
+[[ -d "$zsh_recent_dirs_parent" ]] || mkdir -p -- "$zsh_recent_dirs_parent"
+unset zsh_recent_dirs_parent
 
 # zsh-autocomplete must load before Oh My Zsh calls compinit/compdef.
 autocomplete_loaded=0

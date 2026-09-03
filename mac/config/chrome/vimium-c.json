@@ -1,0 +1,16 @@
+{
+	"name": "Vimium C",
+	"environment": {
+		"extension": "2.12.2",
+		"platform": "mac",
+		"chromium": 152
+	},
+	"vimSync": true,
+	"keyMappings": [
+		"#!no-check",
+		"# Safari-style tab navigation",
+		"map q previousTab",
+		"map w nextTab",
+		""
+	]
+}

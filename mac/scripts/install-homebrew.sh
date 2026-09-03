@@ -2,7 +2,13 @@
 
 set -euo pipefail
 
-if command -v brew >/dev/null 2>&1; then
+if [ "$(uname -m)" = "arm64" ] && [ -x /opt/homebrew/bin/brew ]; then
+  printf '%s\n' 'Homebrew is already installed.'
+  exit 0
+elif [ -x /usr/local/bin/brew ]; then
+  printf '%s\n' 'Homebrew is already installed.'
+  exit 0
+elif command -v brew >/dev/null 2>&1; then
   printf '%s\n' 'Homebrew is already installed.'
   exit 0
 fi

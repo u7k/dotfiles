@@ -46,12 +46,21 @@ if command -v starship >/dev/null 2>&1; then
 fi
 
 printf '%s\n' 'Checking package-list syntax...'
-if command -v brew >/dev/null 2>&1; then
-  if ! HOMEBREW_NO_AUTO_UPDATE=1 brew bundle list --file="$ROOT_DIR/packages/Brewfile" --all >/dev/null; then
+if [ "$(uname -m)" = "arm64" ] && [ -x /opt/homebrew/bin/brew ]; then
+  BREW_BIN=/opt/homebrew/bin/brew
+elif [ -x /usr/local/bin/brew ]; then
+  BREW_BIN=/usr/local/bin/brew
+else
+  BREW_BIN="$(command -v brew 2>/dev/null || true)"
+fi
+
+if [ -n "$BREW_BIN" ]; then
+  if ! HOMEBREW_NO_AUTO_UPDATE=1 "$BREW_BIN" bundle list --file="$ROOT_DIR/packages/Brewfile" --all >/dev/null; then
     printf '%s\n' 'Homebrew could not parse packages/Brewfile.' >&2
     FAILED=1
   fi
 fi
+unset BREW_BIN
 
 printf '%s\n' 'Checking for duplicate editor extensions...'
 for extensions_file in "$ROOT_DIR/config/vscode/vscode-extensions.txt"; do
