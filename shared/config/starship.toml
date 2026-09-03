@@ -9,6 +9,12 @@ $directory\
 $git_branch\
 $git_status\
 $git_state\
+$docker_context\
+$golang\
+$nodejs\
+$rust\
+$swift\
+$python\
 [](fg:surface)\
 $fill\
 $cmd_duration\
@@ -59,6 +65,39 @@ deleted = "✘${count} "
 [git_state]
 format = "[ $state( $progress_current/$progress_total) ]($style)"
 style = "bold bg:surface fg:red"
+
+# Language and runtime modules appear only when Starship detects a matching
+# project. They share the Git chip background to keep the prompt compact.
+[docker_context]
+format = "[ $symbol$context ]($style)"
+symbol = " "
+style = "bold bg:surface fg:cyan"
+only_with_files = true
+
+[golang]
+format = "[ $symbol($version) ]($style)"
+symbol = " "
+style = "bold bg:surface fg:cyan"
+
+[nodejs]
+format = "[ $symbol($version) ]($style)"
+symbol = " "
+style = "bold bg:surface fg:green"
+
+[rust]
+format = "[ $symbol($version) ]($style)"
+symbol = " "
+style = "bold bg:surface fg:red"
+
+[swift]
+format = "[ $symbol($version) ]($style)"
+symbol = " "
+style = "bold bg:surface fg:red"
+
+[python]
+format = '[ $symbol$version( \($virtualenv\)) ]($style)'
+symbol = " "
+style = "bold bg:surface fg:yellow"
 
 [fill]
 symbol = " "
