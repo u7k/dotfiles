@@ -30,7 +30,7 @@ The shared terminal toolset is:
 | `zsh` | `zsh` | `zsh` |
 | Zsh completion | `zsh-autocomplete` | `zsh-autocomplete` |
 | Zsh suggestions | `zsh-autosuggestions` | `zsh-autosuggestions` |
-| Zsh highlighting | `zsh-syntax-highlighting` | `zsh-syntax-highlighting` |
+| Zsh highlighting | `zsh-syntax-highlighting` (`zsh-fast-syntax-highlighting` also installed) | `zsh-syntax-highlighting` |
 
 Compared with the original setups, macOS gains `atuin`, `bat`, `dua`,
 `lazydocker`, `tldr`, `zoxide`, and uses Ghostty instead of Warp. Omarchy gains the missing Yazi

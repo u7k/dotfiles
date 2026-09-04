@@ -14,12 +14,19 @@ mkdir -p "$SCREENSHOT_DIR"
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 # Finder
+# Show hidden files and folders.
+defaults write com.apple.finder AppleShowAllFiles -bool true
+# Show filename extensions for all files.
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+# Keep folders before files when sorting.
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
 defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowStatusBar -bool false
 defaults write com.apple.finder FXPreferredViewStyle -string "icnv"
 
 # Dock
+# Show only applications that are currently running.
+defaults write com.apple.dock static-only -bool true
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock tilesize -int 54
 defaults write com.apple.dock show-recents -bool false
@@ -28,8 +35,15 @@ defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.screencapture location -string "$SCREENSHOT_DIR"
 defaults write com.apple.screencapture type -string "png"
 
-killall Finder 2>/dev/null || true
-killall Dock 2>/dev/null || true
-killall SystemUIServer 2>/dev/null || true
+# Kill affected applications.
+APPS=(
+  Finder
+  Dock
+  SystemUIServer
+)
+
+for APP in "${APPS[@]}"; do
+  killall "$APP" &>/dev/null || true
+done
 
 printf '%s\n' 'macOS preferences applied.'

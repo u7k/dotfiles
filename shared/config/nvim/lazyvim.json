@@ -19,6 +19,8 @@
     "lazyvim.plugins.extras.ui.mini-animate",
     "lazyvim.plugins.extras.util.dot"
   ],
-  "news": {},
+  "news": {
+    "NEWS.md": "11866"
+  },
   "version": 8
 }

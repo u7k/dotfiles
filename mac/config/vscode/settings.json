@@ -11,6 +11,7 @@
   },
   "chatgpt.openOnStartup": true,
   "workbench.activityBar.location": "top",
-  "workbench.colorTheme": "Tokyo Night",
-  "workbench.iconTheme": "vscode-icons"
+  "workbench.colorTheme": "Theme Picker — Osaka Jade",
+  "workbench.iconTheme": "vscode-icons",
+  "explorer.confirmDelete": false
 }

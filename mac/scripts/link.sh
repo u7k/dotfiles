@@ -10,6 +10,11 @@ link_item() {
   local source_path="$1"
   local target_path="$2"
 
+  if [ ! -e "$source_path" ] && [ ! -L "$source_path" ]; then
+    printf 'missing source: %s\n' "$source_path" >&2
+    return 1
+  fi
+
   if [ "$source_path" = "$target_path" ]; then
     printf 'already in place: %s\n' "$target_path"
     return 0
@@ -42,15 +47,15 @@ link_item "$ROOT_DIR/config/shell/zsh/zshrc" "$HOME/.zshrc"
 link_item "$ROOT_DIR/config/shell/bash/bash_profile" "$HOME/.bash_profile"
 link_item "$ROOT_DIR/config/shell/bash/bashrc" "$HOME/.bashrc"
 
-link_item "$ROOT_DIR/config/aerospace/aerospace.toml" "$HOME/.aerospace.toml"
-link_item "$ROOT_DIR/config/aerospace" "$HOME/.config/aerospace"
 link_item "$REPO_DIR/shared/config/atuin" "$HOME/.config/atuin"
 link_item "$REPO_DIR/shared/config/btop" "$HOME/.config/btop"
 link_item "$ROOT_DIR/config/ghostty" "$HOME/.config/ghostty"
 link_item "$ROOT_DIR/config/nano/nanorc" "$HOME/.nanorc"
+link_item "$ROOT_DIR/config/omniwm" "$HOME/.config/omniwm"
 link_item "$REPO_DIR/shared/config/nvim" "$HOME/.config/nvim"
 link_item "$REPO_DIR/shared/config/starship.toml" "$HOME/.config/starship.toml"
 link_item "$REPO_DIR/shared/config/tmux" "$HOME/.config/tmux"
 link_item "$REPO_DIR/shared/config/yazi" "$HOME/.config/yazi"
 
+link_item "$ROOT_DIR/config/vscode/extensions/theme-picker.local-1.0.0" "$HOME/.vscode/extensions/theme-picker.local-1.0.0"
 link_item "$ROOT_DIR/config/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
