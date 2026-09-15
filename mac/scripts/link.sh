@@ -57,5 +57,7 @@ link_item "$REPO_DIR/shared/config/starship.toml" "$HOME/.config/starship.toml"
 link_item "$REPO_DIR/shared/config/tmux" "$HOME/.config/tmux"
 link_item "$REPO_DIR/shared/config/yazi" "$HOME/.config/yazi"
 
+link_item "$ROOT_DIR/config/vicinae/settings.json" "$HOME/.config/vicinae/settings.json"
+link_item "$ROOT_DIR/config/vicinae/themes/theme-picker.toml" "$HOME/.local/share/vicinae/themes/theme-picker.toml"
 link_item "$ROOT_DIR/config/vscode/extensions/theme-picker.local-1.0.0" "$HOME/.vscode/extensions/theme-picker.local-1.0.0"
 link_item "$ROOT_DIR/config/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"

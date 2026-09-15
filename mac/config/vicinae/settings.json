@@ -1,0 +1,60 @@
+{
+  "$schema": "https://vicinae.com/schemas/config.json",
+  "global_shortcuts": {
+    "toggle": "control+SPACE"
+  },
+  "theme": {
+    "dark": {
+      "name": "theme-picker"
+    }
+  },
+  "providers": {
+    "@Codely/store.raycast.google-chrome": {
+      "entrypoints": {
+        "new-window": {
+          "shortcut": "super+control+alt+shift+_"
+        }
+      }
+    },
+    "@appest/store.raycast.ticktick": {
+      "preferences": {
+        "defaultTitle": "none"
+      }
+    },
+    "@jarry_chung/store.raycast.ghostty": {
+      "entrypoints": {
+        "new-ghostty-window": {
+          "shortcut": "super+control+alt+shift+RETURN"
+        }
+      }
+    },
+    "applications": {
+      "entrypoints": {
+        "com.TickTick.task.mac": {
+          "shortcut": "super+control+alt+shift+T"
+        },
+        "com.apple.Notes": {
+          "shortcut": "super+control+alt+shift+N"
+        },
+        "com.apple.Photos": {
+          "shortcut": "super+control+alt+shift+P"
+        },
+        "com.apple.dt.Xcode": {
+          "shortcut": "super+control+alt+shift+X"
+        },
+        "com.apple.finder": {
+          "shortcut": "super+control+alt+shift+F"
+        },
+        "com.apple.mail": {
+          "shortcut": "super+control+alt+shift+M"
+        },
+        "com.google.Chrome": {
+          "shortcut": "super+control+alt+shift+B"
+        },
+        "com.openai.codex": {
+          "shortcut": "super+control+alt+shift+C"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+# Installed extension identifiers only; runtime data and preferences are excluded.
+local.theme-picker
+store.raycast.brew
+store.raycast.coffee
+store.raycast.color-picker
+store.raycast.downloads-manager
+store.raycast.ghostty
+store.raycast.google-chrome
+store.raycast.kill-process
+store.raycast.lorem-ipsum
+store.raycast.myip
+store.raycast.port-manager
+store.raycast.spotify-player
+store.raycast.ticktick
+store.raycast.toothpick
+store.vicinae.process-manager
+store.vicinae.ssh

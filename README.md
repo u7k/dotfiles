@@ -30,7 +30,7 @@ cd ~/.dotfiles
 ## Layout
 
 - `shared/` — shell aliases/functions plus portable TUI and terminal configs
-- `mac/config/` — macOS shell, OmniWM, Ghostty, VS Code, and platform wrappers
+- `mac/config/` — macOS shell, OmniWM, Vicinae, Ghostty, VS Code, and platform wrappers
 - `mac/macos/` — My macOS preferences
 - `mac/packages/` — Homebrew bundle
 - `mac/scripts/` — install, link, and verification commands
